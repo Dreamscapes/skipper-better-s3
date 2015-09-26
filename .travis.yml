@@ -1,0 +1,13 @@
+---
+sudo: false
+language: node_js
+node_js:
+- 4.0.0
+deploy:
+  provider: npm
+  email: rr.rossmann@gmail.com
+  api_key:
+    secure: eqGb1TDhKFY9d5uuhmPhHzo/WAacm/uW01iYArmdkim1sJyduZNepM3P/uJBCCpRAEgbHClAeHdX0pQbaevmIAYxnTT/0Bx+FF6HSL8uHleXD9FEKFjzNls4CmpkDTFfWvEplXz00UjjNDauPmF63QnGcnzPo4Lauv1IA1QB/wXf/mC8PS7q8kRQSqbyuXnMEZPiBOQUm50MDw8g5+Gxk4MRjuEh+kDIoAQZv3KDfDlWAjo13kW4FlmQ4WAjeMV9nBAuUZt37Q2LJz+D/oX4sMNGLyI7xjc8XsKIqyvptAZE+h6tGb8ZKYDiYDHsXONx8wywONwV9ZiPhf5gbTKzGxI9xPMWSE+XcSCDMzqcP4pjPNv2bSmFMXGsMNk7JbBEJmIVUhOSI3l0CNU+VT7lW+d6LXxLERTezXwSD2qDgbHvtXK1d4L28/IDTrewBYuNR7/Ou3bd+Xdi1ctFLeXo+wRqwro/zT2KgQx+Hayc0Im8tbzwR73/WPvZSWJCLnkuANkb8i+2j4x5CDVcliFIKKyl/mPr8VVCrpVyB9UHNYipp0t9j11xbymqtmKrXv6bkF0dNi0OKteVgVbo2svkmHrsgvoO6PMmuQXRJNVsp+IxWHS4p0trwby0zqEZ4KiLmjpWafDvO8oT+ooSZIGyvn6RCUQ+tW2jeIWL4E7VLwU=
+  on:
+    tags: true
+    repo: Dreamscapes/skipper-better-s3
