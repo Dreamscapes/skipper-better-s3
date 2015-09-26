@@ -1,0 +1,27 @@
+{
+  "source": {
+    "include": [
+      "./lib/",
+      "./README.md"
+    ]
+  },
+  "opts": {
+    "recurse": true
+  },
+  "plugins": ["plugins/markdown"],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true,
+    "default": {
+      "outputSourceFiles": true
+    },
+    "applicationName": "Dreamscapes\\Skipper-better-S3",
+    "googleAnalytics": "",
+    "linenums": true
+  },
+  "markdown": {
+    "parser": "gfm",
+    "githubRepoName": "skipper-better-s3",
+    "githubRepoOwner": "Dreamscapes"
+  }
+}
