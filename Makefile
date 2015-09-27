@@ -1,7 +1,7 @@
 # skipper-better-s3
 #
 # @author      Robert Rossmann <rr.rossmann@me.com>
-# @copyright   2015 STRV
+# @copyright   2015
 # @license     http://choosealicense.com/licenses/bsd-3-clause  BSD-3-Clause License
 
 # Default - Run it all! (except for coveralls - that should be run only from Travis)
