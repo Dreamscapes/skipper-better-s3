@@ -39,7 +39,7 @@
     "url": "git://github.com/Dreamscapes/skipper-better-s3"
   },
   "scripts": {
-    "lint": "eslint lib",
-    "test": "true"
+    "lint": "make lint",
+    "test": "make lint"
   }
 }
