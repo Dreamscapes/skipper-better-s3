@@ -4,7 +4,7 @@
 # @copyright   2015
 # @license     http://choosealicense.com/licenses/bsd-3-clause  BSD-3-Clause License
 
-# Default - Run it all! (except for coveralls - that should be run only from Travis)
+# Default - Run it all!
 all: install lint docs
 
 include targets/nodejs/base.mk
