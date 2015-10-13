@@ -31,13 +31,14 @@ You upload the files as usual with any other adapter. See some examples below.
 
 #### Supported options
 
-| Option     | Type     | Details                                                                                                                                                                                             |
-|------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| key        | String   | Your Amazon access key                                                                                                                                                                              |
-| secret     | String   | Your Amazon secret                                                                                                                                                                                  |
-| bucket     | String   | The S3 bucket to upload the file to                                                                                                                                                                 |
-| s3options  | Object   | Optional options to be passed to the underlying Amazon SDK library when performing the file upload. This could be any parameter that is supported by the S3's [`putObject()`][s3-putobject] method. |
-| onProgress | Function | Marked by Skipper core as experimental. If provided, will be called periodically as the data is being uploaded with current progress information.                                                   |
+| Option     | Type     | Details                                                                                                                                                                                                     |
+|------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| key        | String   | Your Amazon access key                                                                                                                                                                                      |
+| secret     | String   | Your Amazon secret                                                                                                                                                                                          |
+| bucket     | String   | The S3 bucket to upload the file to                                                                                                                                                                         |
+| s3params   | Object   | Optional parameters to be passed to the underlying Amazon SDK library when performing the file upload. This could be any parameter that is supported by the S3's [`upload()`][s3-upload] method.            |
+| s3options  | Object   | Optional configuration for the upload request to be passed to the underlying Amazon SDK library. This could be any parameter that is supported by the second argument of the [`upload()`][s3-upload] method. |
+| onProgress | Function | Marked by Skipper core as experimental. If provided, will be called periodically as the data is being uploaded with current progress information.                                                           |
 
 #### Example usage
 
@@ -48,9 +49,9 @@ const options =
       , key: 'somekeyhere'
       , secret: 'dontsharethis'
       , bucket: 'my-s3-bucket'
-        // Let's use the custom s3options to upload this file as publicly
+        // Let's use the custom s3params to upload this file as publicly
         // readable by anyone
-      , s3options:
+      , s3params:
         { ACL: 'public-read'
         }
         // And while we are at it, let's monitor the progress of this upload
@@ -144,7 +145,7 @@ This is great, because it allows your clients to interact with your S3 storage d
 
 ```js
 // Assuming you already have an adapter instance...
-const url = adapter.url('getObject', { s3options: { Key: 'avatars/123.jpg' } })
+const url = adapter.url('getObject', { s3params: { Key: 'avatars/123.jpg' } })
 // Give the url to the client - they can read this file directly from there
 // Optionally do a redirect (303 - "see other") to this file yourself:
 // res.redirect(303, url)
@@ -172,4 +173,4 @@ This software is licensed under the **BSD-3-Clause License**. See the [LICENSE](
 [npm-url]: https://npmjs.org/package/skipper-better-s3
 [skipper-logo]: http://i.imgur.com/P6gptnI.png
 [project-root]: https://github.com/Dreamscapes/skipper-better-s3
-[s3-putobject]: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#putObject-property
+[s3-upload]: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#upload-property
