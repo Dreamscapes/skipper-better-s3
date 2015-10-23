@@ -31,14 +31,15 @@ You upload the files as usual with any other adapter. See some examples below.
 
 #### Supported options
 
-| Option     | Type     | Details                                                                                                                                                                                                     |
-|------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| key        | String   | Your Amazon access key                                                                                                                                                                                      |
-| secret     | String   | Your Amazon secret                                                                                                                                                                                          |
-| bucket     | String   | The S3 bucket to upload the file to                                                                                                                                                                         |
-| s3params   | Object   | Optional parameters to be passed to the underlying Amazon SDK library when performing the file upload. This could be any parameter that is supported by the S3's [`upload()`][s3-upload] method.            |
-| s3options  | Object   | Optional configuration for the upload request to be passed to the underlying Amazon SDK library. This could be any parameter that is supported by the second argument of the [`upload()`][s3-upload] method. |
-| onProgress | Function | Marked by Skipper core as experimental. If provided, will be called periodically as the data is being uploaded with current progress information.                                                           |
+| Option | Type | Details |
+|------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| key | String | Your Amazon access key |
+| secret | String | Your Amazon secret |
+| bucket | String | The S3 bucket to upload the file to |
+| region | String | Optional. If your S3 bucket resides in a different region than "us-standard", you can use this parameter to operate on that region. |
+| s3params | Object | Optional parameters to be passed to the underlying Amazon SDK library when performing the file upload. This could be any parameter that is supported by the S3's [`upload()`][s3-upload] method. |
+| s3options | Object | Optional configuration for the upload request to be passed to the underlying Amazon SDK library. This could be any parameter that is supported by the second argument of the [`upload()`][s3-upload] method. |
+| onProgress | Function | Marked by Skipper core as experimental. If provided, will be called periodically as the data is being uploaded with current progress information. |
 
 #### Example usage
 
