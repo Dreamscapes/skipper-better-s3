@@ -1,4 +1,4 @@
-# [<img title="skipper-gridfs - GridFS filesystem adapter for Skipper" src="http://i.imgur.com/P6gptnI.png" width="200px" alt="skipper emblem - face of a ship's captain"/>][project-root] Skipper-Better-S3
+# [<img title="skipper-better-s3 - Amazon S3 filesystem adapter for Skipper" src="http://i.imgur.com/P6gptnI.png" width="200px" alt="skipper emblem - face of a ship's captain"/>][project-root] Skipper-Better-S3
 
 [![NPM Version][npm-badge]][npm-url]
 ![Runs on Node][node-badge]
@@ -11,9 +11,10 @@
 
 ## Why better?
 
-Have you ever tried to upload a file and make it publicly readable using the official skipper-s3 adapter? Well you cannot do that, there's just no support for such things. What was even worse, the official adapter kept calculating incorrect md5 hashes of the uploaded files which lead to all kinds of errors when I started verifying the uploaded files' integrity.
-
+Have you ever tried to upload a file and make it publicly readable using the official skipper-s3 adapter? Well you cannot do that, there's just no support for such things.
 Also, the official adapter's codebase seems to be really complicated, at least to me :smile:, which in long term might discourage potential contributions.
+
+And, as a nice bonus, this adapter comes bundled with some extra functionality to work with your S3 objects.
 
 ## Installation
 
@@ -50,6 +51,7 @@ const options =
       , key: 'somekeyhere'
       , secret: 'dontsharethis'
       , bucket: 'my-s3-bucket'
+      , region: 'us-east-1'  // Optional - default is 'us-standard'
         // Let's use the custom s3params to upload this file as publicly
         // readable by anyone
       , s3params:
