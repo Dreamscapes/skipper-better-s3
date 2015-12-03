@@ -11,10 +11,11 @@
 
 ## Why better?
 
-Have you ever tried to upload a file and make it publicly readable using the official skipper-s3 adapter? Well you cannot do that, there's just no support for such things.
-Also, the official adapter's codebase seems to be really complicated, at least to me :smile:, which in long term might discourage potential contributions.
+Compared to the official S3 adapter, this one allows you to do some extra things currently not possible (or too difficult) with the official one:
 
-And, as a nice bonus, this adapter comes bundled with some extra functionality to work with your S3 objects.
+- Customise access control to uploaded files (i.e. make a file publicly readable)
+- Upload filesystem-originated readable streams (or any other type of stream), not just http file uploads
+- Create [signed S3 URLs][s3-presigned-urls]
 
 ## Installation
 
@@ -65,6 +66,39 @@ req.file('avatar').upload(options, (err, files) => {
   // ... Continue as usual
 })
 ```
+
+#### Server-initiated file uploads
+
+If you need to upload a file which your application generates (i.e. the file does not come via http upload request), you need to create a *receiver* to which you write the readable stream.
+
+```js
+// You can use all the supported options here
+const options =
+      { key: 'somekeyhere'
+      , secret: 'dontsharethis'
+      , bucket: 'my-s3-bucket'
+      }
+
+// Create and configure an adapter
+const adapter = require('skipper-better-s3')(options)
+// Now, create a receiver - receiver is a writable stream which accepts
+// other streams that should be uploaded to S3
+const receiver = adapter.receive()
+
+// Suppose we want to upload a file which we temporarily saved to disk
+const file = fs.createReadStream('/tmp/my-report.pdf')
+
+// And now, just send the file to the receiver!
+receiver.write(file, () => {
+  // Upload complete! You can find some interesting info on the stream's
+  // `extra` property
+  console.log(file.extra)
+})
+```
+
+> If you need to upload any other type of stream than a file stream or HTTP upload body (i.e. a zlib or crypto stream), you should add a `fd` property to the stream, which should be the name of the file in the S3 storage. If you forget to add this property, a random unique identifier will be generated for you.
+
+> **This feature is currently experimental** as it lacks the expected response structure that is provided by Skipper when you upload a standard http stream.
 
 ### File downloads
 
@@ -177,3 +211,4 @@ This software is licensed under the **BSD-3-Clause License**. See the [LICENSE](
 [skipper-logo]: http://i.imgur.com/P6gptnI.png
 [project-root]: https://github.com/Dreamscapes/skipper-better-s3
 [s3-upload]: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#upload-property
+[s3-presigned-urls]: http://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html
