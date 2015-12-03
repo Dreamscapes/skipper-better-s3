@@ -83,7 +83,8 @@ const options =
 const adapter = require('skipper-better-s3')(options)
 // Now, create a receiver - receiver is a writable stream which accepts
 // other streams that should be uploaded to S3
-const receiver = adapter.receive()
+// All files will be saved to this S3 directory (this configuration object is optional)
+const receiver = adapter.receive({ dirname: 'optional/directory/path' })
 
 // Suppose we want to upload a file which we temporarily saved to disk
 const file = fs.createReadStream('/tmp/my-report.pdf')
