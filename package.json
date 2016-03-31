@@ -18,7 +18,8 @@
     "semantic-merge": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^1.5.1",
+    "@strv/eslint-config-javascript": "^3.0.0",
+    "eslint": "^2.5.3",
     "jsdoc": "^3.4.0"
   },
   "engines": {
