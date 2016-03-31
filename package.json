@@ -17,7 +17,7 @@
     "semantic-merge": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^1.5.1",
+    "eslint": "^2.5.3",
     "jsdoc": "github:jsdoc3/jsdoc#master"
   },
   "engines": {
