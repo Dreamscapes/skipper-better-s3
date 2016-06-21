@@ -15,11 +15,11 @@
     "local-scope": "^1.0.0",
     "mime": "^1.3.4",
     "node-uuid": "^1.4.3",
-    "semantic-merge": "^1.0.0"
+    "semantic-merge": "^2.0.0"
   },
   "devDependencies": {
-    "@strv/eslint-config-javascript": "^3.0.0",
-    "eslint": "^2.5.3",
+    "@strv/eslint-config-javascript": "^4.0.0",
+    "eslint": "^2.13.0",
     "jsdoc": "^3.4.0"
   },
   "engines": {
