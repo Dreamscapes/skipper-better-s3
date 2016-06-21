@@ -41,6 +41,7 @@ You upload the files as usual with any other adapter. See some examples below.
 | region | String | Optional. If your S3 bucket resides in a different region than "us-standard", you can use this parameter to operate on that region. |
 | s3params | Object | Optional parameters to be passed to the underlying Amazon SDK library when performing the file upload. This could be any parameter that is supported by the S3's [`upload()`][s3-upload] method. |
 | s3options | Object | Optional configuration for the upload request to be passed to the underlying Amazon SDK library. This could be any parameter that is supported by the second argument of the [`upload()`][s3-upload] method. |
+| s3config | Object | Optional configuration for the S3 service itself. This is passed directly to the [`constructor`][s3-constructor].
 | onProgress | Function | Marked by Skipper core as experimental. If provided, will be called periodically as the data is being uploaded with current progress information. |
 
 #### Example usage
@@ -212,4 +213,5 @@ This software is licensed under the **BSD-3-Clause License**. See the [LICENSE](
 [skipper-logo]: http://i.imgur.com/P6gptnI.png
 [project-root]: https://github.com/Dreamscapes/skipper-better-s3
 [s3-upload]: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#upload-property
+[s3-constructor]: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property
 [s3-presigned-urls]: http://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html
