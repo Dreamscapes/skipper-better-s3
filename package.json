@@ -1,7 +1,7 @@
 {
   "name": "skipper-better-s3",
   "description": "A better approach to Amazon S3 file management for Skipper",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "author": {
     "name": "Robert Rossmann",
     "email": "rr.rossmann@me.com"
