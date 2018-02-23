@@ -11,15 +11,12 @@
 module.exports = {
 
   extends: [
-    '@strv/javascript/environments/nodejs/v5',
-    '@strv/javascript/environments/nodejs/best-practices',
+    '@strv/javascript/environments/nodejs/v8-3',
     '@strv/javascript/environments/nodejs/optional',
-    '@strv/javascript/coding-styles/base'
+    '@strv/javascript/coding-styles/recommended',
   ],
 
   rules: {
-    // Node.js 4 does not support spread
-    'prefer-spread': 0,
     // If your editor cannot show these to you, occasionally turn this off and run the linter
     'no-warning-comments': 0
   }
